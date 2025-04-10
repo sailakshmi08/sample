@@ -1,0 +1,32 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. PrimeNumber.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 NUM PIC 9(4) VALUE 0.
+       01 I PIC 9(4) VALUE 0.
+       01 FLAG PIC 9 VALUE 0.
+
+       PROCEDURE DIVISION.
+       DISPLAY "Enter a number: " WITH NO ADVANCING.
+       ACCEPT NUM.
+
+       IF NUM < 2 THEN
+           DISPLAY "Not a prime number."
+       ELSE
+           MOVE 0 TO FLAG
+           PERFORM VARYING I FROM 2 BY 1 UNTIL I > NUM / 2
+               IF NUM MOD I = 0 THEN
+                   MOVE 1 TO FLAG
+                   EXIT PERFORM
+               END-IF
+           END-PERFORM
+
+           IF FLAG = 0 THEN
+               DISPLAY NUM " is a prime number."
+           ELSE
+               DISPLAY NUM " is not a prime number."
+           END-IF
+       END-IF.
+
+       STOP RUN.
