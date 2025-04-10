@@ -1,6 +1,6 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. PrimeNumber.
-
+      *prime numbers 
        DATA DIVISION.
        WORKING-STORAGE SECTION.
        01 NUM PIC 9(4) VALUE 0.
