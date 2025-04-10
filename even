@@ -1,0 +1,33 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FindEvenNumbers.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 START-NUMBER        PIC 9(4).
+       01 END-NUMBER          PIC 9(4).
+       01 CURRENT-NUMBER      PIC 9(4).
+       01 REMAINDER           PIC 9(1).
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           DISPLAY "Enter the starting number of the range: " WITH NO ADVANCING.
+           ACCEPT START-NUMBER.
+           DISPLAY "Enter the ending number of the range: " WITH NO ADVANCING.
+           ACCEPT END-NUMBER.
+
+           DISPLAY "Even numbers between " START-NUMBER " and " END-NUMBER ":".
+
+           MOVE START-NUMBER TO CURRENT-NUMBER.
+
+           PERFORM UNTIL CURRENT-NUMBER > END-NUMBER
+               COMPUTE REMAINDER = CURRENT-NUMBER MOD 2
+               IF REMAINDER = 0
+                   DISPLAY CURRENT-NUMBER
+               END-IF
+               ADD 1 TO CURRENT-NUMBER
+           END-PERFORM.
+
+           STOP RUN.
